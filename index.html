@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Contact Form</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #3a6186, #89253e);
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      width: 350px;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      animation: slideUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    .input-box {
+      position: relative;
+      margin: 25px 0;
+    }
+
+    .input-box input,
+    .input-box textarea {
+      width: 100%;
+      padding: 10px 10px 10px 5px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid #fff;
+      color: #fff;
+      font-size: 16px;
+      /* outline: none; */
+      transition: 0.3s;
+    }
+
+    .input-box label {
+      position: absolute;
+      top: 10px;
+      left: 5px;
+      color: #ccc;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    .input-box input:focus ~ label,
+    .input-box input:valid ~ label,
+    .input-box textarea:focus ~ label,
+    .input-box textarea:valid ~ label {
+      top: -15px;
+      color: #00ffd5;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      outline: none;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #fff;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #00ffd5, #00c6ff);
+      box-shadow: 0 0 15px #00ffd5;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <form class="contact-form">
+    <h2>Contact Us</h2>
+
+    <div class="input-box">
+      <input type="text" name="name" required>
+      <label>Full Name</label>
+    </div>
+
+    <div class="input-box">
+      <input type="email" name="email" required>
+      <label>Email</label>
+    </div>
+
+    <div class="input-box">
+      <textarea name="message" rows="4" required></textarea>
+      <label>Your Message</label>
+    </div>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <script>
+    const form = document.querySelector('.contact-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('✅ Your message has been sent successfully!');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
+
+</body>
+</html>
